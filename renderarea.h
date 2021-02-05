@@ -52,18 +52,9 @@ class RenderArea : public QWidget
 public:
     explicit RenderArea(const QPainterPath &path, QWidget *parent = 0);
 
-    QSize minimumSizeHint() const Q_DECL_OVERRIDE;
-    QSize sizeHint() const Q_DECL_OVERRIDE;
     void updatePath(QPainterPath& new_path);
     void saveSignature();
     void enableSavingImage(){is_saving_image = false;}
-public slots:
-    void setFillRule(Qt::FillRule rule);
-    void setFillGradient(const QColor &color1, const QColor &color2);
-    void setPenWidth(int width);
-    void setPenColor(const QColor &color);
-    void setRotationAngle(int degrees);
-
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 //! [0]
